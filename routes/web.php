@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ActualizacionesController;
+use App\Http\Controllers\ApikeyController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SolicitudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/', 'clan-about')->name('about');
+
+Route::get('/noticias', [NewsController::class, 'index'])->name('news.index');
+
+Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->name('actualizaciones');
+
+Route::get('/solicitud', [SolicitudController::class, 'index'])->name('solicitud');
+Route::post('/solicitud', [SolicitudController::class, 'store']);
+
+Route::view('/perfil', 'perfiles.user-view')->middleware('auth')->name('perfil');
+
+Route::get('/keys', [ApikeyController::class, 'index'])->middleware('auth')->name('apiform');
+Route::post('/keys', [ApikeyController::class, 'save']);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
