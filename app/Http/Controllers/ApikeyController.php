@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\ApyKey;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ApikeyController extends Controller
@@ -28,5 +26,11 @@ class ApikeyController extends Controller
         ]);
         return back();
 
+    }
+
+    public function delete()
+    {
+        ApyKey::where('id', request('idKey'))->delete();
+        return back();
     }
 }
