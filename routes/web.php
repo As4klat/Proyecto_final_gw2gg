@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ActualizacionesController;
+use App\Http\Controllers\ApikeyController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SolicitudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/', 'clan-about')->name('about');
+
+Route::get('/noticias', [NewsController::class, 'index'])->name('news.index');
+Route::get('/noticias/nuevo-post', [NewsController::class, 'create'])->name('news.create');
+Route::post('/noticias/nuevo-post', [NewsController::class, 'save'])->name('news.save');
+
+Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->name('actualizaciones');
+
+Route::get('/solicitud', [SolicitudController::class, 'index'])->name('solicitud');
+Route::post('/solicitud', [SolicitudController::class, 'save']);
+
+Route::view('/perfil', 'perfiles.user-view')->middleware('auth')->name('perfil');
+
+Route::get('/keys', [ApikeyController::class, 'index'])->middleware('auth')->name('apiform');
+Route::post('/keys', [ApikeyController::class, 'save'])->middleware('auth')->name('apiform.save');
+Route::delete('/keys', [ApikeyController::class, 'delete'])->middleware('auth')->name('apiform.delete');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
