@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'clan-about')->name('about');
 
 Route::get('/noticias', [NewsController::class, 'index'])->name('news.index');
+Route::post('/noticias/nuevo-post', [NewsController::class, 'create'])->name('news.create');
 
 Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->name('actualizaciones');
 

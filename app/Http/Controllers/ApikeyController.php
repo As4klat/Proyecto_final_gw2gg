@@ -10,8 +10,8 @@ class ApikeyController extends Controller
     public function index()
     {
         $id_user = Auth::id();
-        $key = ApyKey::where('id_user', $id_user)->latest()->get();
-        return view('perfiles.apiform', compact('key'));
+        $keys = ApyKey::where('id_user', $id_user)->latest()->get();
+        return view('perfiles.apiform', compact('keys'));
     }
 
     public function save()

@@ -19,11 +19,11 @@
 
     <h2>Tus claves</h2>
     <ul>
-        @forelse ($key as $keyItem)
-            <li>{{ $keyItem['api_key'] }}
+        @forelse ($keys as $key)
+            <li>{{ $key['api_key'] }}
                 <form action="{{ route('apiform.delete') }}" method="POST">
                     @csrf @method('DELETE')
-                    <input type="hidden" name="idKey" id="idKey" value="{{ $keyItem['id'] }}">
+                    <input type="hidden" name="idKey" id="idKey" value="{{ $key['id'] }}">
                     <button>Borrar</button>
                 </form>
             </li>
