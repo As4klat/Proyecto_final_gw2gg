@@ -1,6 +1,6 @@
 @guest
     <p><a href="{{ route('login') }}">Iniciar sesion</a> | <a href="{{ route('register') }}">Registrarse</a></p>
-    @else
+@else
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
         {{ auth()->user()->name }} bienvenido!

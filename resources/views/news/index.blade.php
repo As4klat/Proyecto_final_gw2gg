@@ -6,14 +6,18 @@
 
     <div>
         @forelse ($news as $new)
-        <div onclick="alert('hola')">
-            <h3>{{ $new['title'] }}</h3>
+        <div style="border: grey dotted" onclick="alert('hola')">
+            <h4>{{ $new['title'] }}</h4>
             <p>{{ $new['preview'] }}</p>
         </div>
+        <br>
         @empty
         <p>No hay ninguna novedad</p>
         @endforelse
     </div>
 
+    @if (auth()->user()->permision === 'editor' || 'admin' )
+        <a href="{{ route('news.create') }}">Crear post</a>
+    @endif
 
 @endsection
