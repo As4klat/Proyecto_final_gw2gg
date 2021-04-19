@@ -16,7 +16,7 @@
         @endforelse
     </div>
 
-    @if (auth()->user()->permision === 'editor' || 'admin' )
+    @if (auth()->user()->permision === 'editor' || auth()->user()->permision === 'admin' )
         <a href="{{ route('news.create') }}">Crear post</a>
     @endif
 
