@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <style>
-        .active a{
-            text-decoration: none;
-            color: red;
-        }
-        nav a {
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
 <body>
-    @include('partials.perfil')
-    @include('partials/nav')
 
-    @include('partials.session-status')
+    <div id="app" class="d-flex flex-column h-screen justify-content-between">
+        <header>
+            @include('partials.perfil')
+            @include('partials/nav')
+        </header>
 
-    @yield('content')
+
+        <main>
+            @yield('content')
+        </main>
+
+        <footer class="bg-white text-center text-black-50 py-3 shadow">
+            {{ config('app.name') }} | Copyright @ {{ date('Y') }}
+        </footer>
+    </div>
+
+
 </body>
 </html>
