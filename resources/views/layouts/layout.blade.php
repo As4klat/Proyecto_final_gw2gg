@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}" defer></script>
     </head>
 <body>
 

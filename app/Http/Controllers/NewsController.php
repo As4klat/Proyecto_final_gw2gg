@@ -26,12 +26,23 @@ class NewsController extends Controller
             'body'=> 'required'
         ]);
 
+        $url = strtr(request('title'), " ", "-");
+        $url = strtolower($url);
+
         News::create([
             'id_editor' => Auth::id(),
             'title' => request('title'),
+            'url' => $url,
             'preview' => request('preview'),
             'body' => request('body')
         ]);
         return redirect()->route('news.index');
+    }
+
+    public function show(News $new)
+    {
+        return view('news.show', [
+            'new' => $new
+        ]);
     }
 }
