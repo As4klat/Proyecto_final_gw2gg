@@ -15,7 +15,7 @@ class NewsController extends Controller
 
     public function create()
     {
-        return view('news.news-create');
+        return view('news.create');
     }
 
     public function save()
@@ -44,5 +44,39 @@ class NewsController extends Controller
         return view('news.show', [
             'new' => $new
         ]);
+    }
+
+    public function edit(News $new)
+    {
+        return view('news.edit', [
+            'new' => $new
+        ]);
+    }
+
+    public function update(News $new){
+
+        request()->validate([
+            'title'=> 'required|max:40',
+            'preview'=> 'required|max:254',
+            'body'=> 'required'
+        ]);
+
+        $url = strtr(request('title'), " ", "-");
+        $url = strtolower($url);
+
+        $new->update([
+            'id_editor' => Auth::id(),
+            'title' => request('title'),
+            'url' => $url,
+            'preview' => request('preview'),
+            'body' => request('body')
+        ]);
+
+        return redirect()->route('news.show', $new);
+    }
+
+    public function destroy(News $new){
+        $new->delete();
+        return redirect()->route('news.index');
     }
 }
