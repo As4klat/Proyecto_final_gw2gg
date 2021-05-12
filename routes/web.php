@@ -4,6 +4,7 @@ use App\Http\Controllers\ActualizacionesController;
 use App\Http\Controllers\ApikeyController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserNews;
 use App\Http\Controllers\UserNewsController;
 use App\Models\News;
@@ -43,5 +44,6 @@ Route::delete('/perfil/keys', [ApikeyController::class, 'delete'])->middleware('
 
 Route::view('/perfil/admin', 'perfiles.user-admin')->middleware('auth')->name('userAdmin');
 Route::get('/perfil/admin/tus-noticias', [UserNewsController::class, 'index'])->middleware('auth')->name('userNews.index');
+Route::get('/perfil/admin/usuarios', [UserAdminController::class, 'index'])->middleware('auth')->name('userAdmin.index');
 
 Auth::routes();

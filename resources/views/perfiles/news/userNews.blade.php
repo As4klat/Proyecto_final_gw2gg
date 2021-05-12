@@ -9,7 +9,7 @@
                 <div class="row mt-3 ">
                     {{ $new->title }}
                     <div class="row ml-5">
-                        <a href="{{ route('news.edit', $new) }}" class="btn btn-success ml-3">Editar</a>
+                        <a href="{{ route('news.edit', $new) }}" class="btn btn-outline-success ml-3">Editar</a>
                         <form action="{{ route('news.destroy', $new) }}" method="post">
                             @csrf @method('DELETE')
                             <button class="btn btn-danger ml-3">Eliminar</button>
@@ -18,7 +18,7 @@
                 </div>
             </li>
         @empty
-            <li>No tienes noticias</li>
+            <li>No tienes ningun post</li>
         @endforelse
     </ul>
 
