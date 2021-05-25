@@ -9,8 +9,16 @@ class UserAdminController extends Controller
 {
     public function index(){
         $users = User::get();
-        return view('perfiles.admin.userAdmin', compact('users'));
+        $n = 1;
+        return view('perfiles.admin.userAdmin', [
+            'users' => $users,
+            'n' => $n
+        ]);
     }
 
+    public function destroy(User $user){
+        $user->delete();
 
+        return redirect()->back();
+    }
 }

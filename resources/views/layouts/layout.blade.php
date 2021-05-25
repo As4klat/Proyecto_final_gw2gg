@@ -13,7 +13,7 @@
 
     <div id="app" class="d-flex flex-column h-screen justify-content-between">
         <header>
-            @include('partials.perfil')
+            @include('partials.login')
             @include('partials/nav')
         </header>
 

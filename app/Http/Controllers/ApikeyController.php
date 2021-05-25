@@ -28,9 +28,9 @@ class ApikeyController extends Controller
 
     }
 
-    public function delete()
+    public function destroy(ApyKey $key)
     {
-        ApyKey::where('id', request('idKey'))->delete();
+        $key->delete();
         return back();
     }
 }

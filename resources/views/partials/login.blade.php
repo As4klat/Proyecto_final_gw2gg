@@ -1,4 +1,3 @@
-<div class="container">
 @guest
     <p><a href="{{ route('login') }}">Iniciar sesion</a> | <a href="{{ route('register') }}">Registrarse</a></p>
 @else
@@ -18,7 +17,3 @@
         </div>
     </div>
 @endguest
-</div>
-
-
-
