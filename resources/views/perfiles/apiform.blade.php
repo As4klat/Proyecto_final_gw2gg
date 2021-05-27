@@ -2,6 +2,11 @@
 @section('title', 'Tu perfil | clave api')
 @section('content')
 <div class="container mt-3">
+    <div class="row">
+        <div col-12>
+
+        </div>
+    </div>
     <h1>Tu api key aqui</h1>
 
     @error('userapikey')
@@ -38,7 +43,7 @@
     </ul>
     <h3>Instrucciones</h3>
     <ol>
-        <li>Abre el panel de gestión de <a href="https://account.arena.net">claves de API de Guild Wars 2</a>.</li>
+        <li>Abre el panel de gestión de <a class="no-a" href="https://account.arena.net">claves de API de Guild Wars 2</a>.</li>
         <li>Haz clic en el botón de "nueva clave".</li>
         <li>Introduce un nombre y marca todas las casillas de permisos.</li>
         <li>Copia tu nueva clave de API. CTRL + C</li>

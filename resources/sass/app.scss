@@ -9,5 +9,30 @@
 
 
 .h-screen {
-    height: 100%;
+    height: 100vh;
+}
+
+.img-back {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url('../../public/images/tools/pattern1.jpg');
+}
+
+.no-a {
+    text-decoration: none;
+    color:blue;
+}
+.a-new {
+    text-decoration: none;
+    color:black;
+}
+
+.img-backlogre{
+    background: url('../../public/images/concert_art/Zhaitan.jpg') no-repeat center top;
+    background-size: 100%;
+
+}
+
+.opaco{
+    opacity: .8;
 }

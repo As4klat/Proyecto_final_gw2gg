@@ -7,6 +7,7 @@ use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserNews;
 use App\Http\Controllers\UserNewsController;
+use App\Http\Controllers\ViewUserController;
 use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
@@ -36,15 +37,12 @@ Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->nam
 Route::get('/solicitud', [SolicitudController::class, 'index'])->name('solicitud');
 Route::post('/solicitud', [SolicitudController::class, 'save']);
 
-Route::view('/perfil', 'perfiles.user-view')->middleware('verified')->name('perfil');
-
+Route::get('/perfil', [ViewUserController::class, 'index'])->middleware('verified')->name('perfil');
+Route::delete('/perfil/admin/{user}/delete', [ViewUserController::class, 'destroyUser'])->middleware('verified')->name('perfil.destroy');
 Route::get('/perfil/keys', [ApikeyController::class, 'index'])->middleware('verified')->name('apiform.index');
 Route::post('/perfil/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');
 Route::delete('/perfil/keys/delete/{key}', [ApikeyController::class, 'destroy'])->middleware('verified')->name('apiform.destroy');
 
-Route::view('/perfil/admin', 'perfiles.user-admin')->middleware('verified')->name('userAdmin');
-Route::get('/perfil/admin/tus-noticias', [UserNewsController::class, 'index'])->middleware('verified')->name('userNews.index');
-Route::get('/perfil/admin/usuarios', [UserAdminController::class, 'index'])->middleware('verified')->name('userAdmin.index');
-Route::delete('/perfil/admin/usuarios/{user}/delete', [UserAdminController::class, 'destroy'])->middleware('verified')->name('userAdmin.destroy');
+
 
 Auth::routes(['verify' => true]);

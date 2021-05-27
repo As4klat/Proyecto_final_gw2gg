@@ -15,9 +15,9 @@ class SolicitudController extends Controller
     public function save(){
 
         request()->validate([
-            'cuenta' => 'required',
-            'clases' => 'required',
-            'motivo' => 'required'
+            'cuenta' => 'required|max:50',
+            'clases' => 'required|max:254',
+            'motivo' => 'required|max:254'
         ]);
 
         solicitudes::create([

@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
+
     public function index()
     {
-        $news = News::latest()->get();
+        $news = News::latest()->paginate(8);
         return view('news.index', compact('news'));
     }
 
