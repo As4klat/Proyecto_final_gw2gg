@@ -13,7 +13,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link {{ setActive('about') }}" href="{{route('about')}}">Nuesto clan</a></li>
                 <li class="nav-item"><a class="nav-link {{ setActive('news.index') }}"  href="{{route('news.index')}}">Noticias</a></li>
-                <li class="nav-item"><a class="nav-link {{ setActive('actualizaciones') }}"  href="{{route('actualizaciones')}}">Actualizaciones</a></li>
+                <li class="nav-item"><a class="nav-link {{ setActive('actualizaciones') }}"  href="{{route('actualizaciones.index')}}">Actualizaciones</a></li>
                 <li class="nav-item"><a class="nav-link {{ setActive('solicitud') }}"  href="{{route('solicitud')}}">Solicitud</a></li>
             </ul>
         </div>

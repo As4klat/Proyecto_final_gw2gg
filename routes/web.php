@@ -3,11 +3,13 @@
 use App\Http\Controllers\ActualizacionesController;
 use App\Http\Controllers\ApikeyController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ScrapingController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserNews;
 use App\Http\Controllers\UserNewsController;
 use App\Http\Controllers\ViewUserController;
+use App\Models\Actualizaciones;
 use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +34,8 @@ Route::patch('/noticias/{new}', [NewsController::class, 'update'])->middleware('
 Route::get('/noticias/{new}', [NewsController::class, 'show'])->middleware('verified')->name('news.show');
 Route::delete('/noticias/{new}/delete', [NewsController::class, 'destroy'])->middleware('verified')->name('news.destroy');
 
-Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->name('actualizaciones');
+Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->name('actualizaciones.index');
+Route::get('/actualizaciones{actualizacion}', [ActualizacionesController::class, 'show'])->name('actualizaciones.show');
 
 Route::get('/solicitud', [SolicitudController::class, 'index'])->name('solicitud');
 Route::post('/solicitud', [SolicitudController::class, 'save']);
@@ -43,6 +46,6 @@ Route::get('/perfil/keys', [ApikeyController::class, 'index'])->middleware('veri
 Route::post('/perfil/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');
 Route::delete('/perfil/keys/delete/{key}', [ApikeyController::class, 'destroy'])->middleware('verified')->name('apiform.destroy');
 
-
+Route::get('/scraping', [ScrapingController::class, 'escraping'])->name('scraping');
 
 Auth::routes(['verify' => true]);
