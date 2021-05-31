@@ -13,13 +13,13 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link {{ setActive('about') }}" href="{{route('about')}}">Nuesto clan</a></li>
                 <li class="nav-item"><a class="nav-link {{ setActive('news.index') }}"  href="{{route('news.index')}}">Noticias</a></li>
-                <li class="nav-item"><a class="nav-link {{ setActive('actualizaciones') }}"  href="{{route('actualizaciones.index')}}">Actualizaciones</a></li>
+                <li class="nav-item"><a class="nav-link {{ setActive('actualizaciones.index') }}"  href="{{route('actualizaciones.index')}}">Actualizaciones</a></li>
                 <li class="nav-item"><a class="nav-link {{ setActive('solicitud') }}"  href="{{route('solicitud')}}">Solicitud</a></li>
             </ul>
         </div>
 
         <a class="navbar-brand" href="{{route('about')}}">
-            <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+            <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="fuerzas_del_alba.jpg">
         </a>
 
     </div>

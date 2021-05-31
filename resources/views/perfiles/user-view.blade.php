@@ -6,12 +6,14 @@
             <li class="nav-item" role="presentation">
               <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true">Tu perfil</a>
             </li>
+        @if (auth()->user()->permision === 'editor' || auth()->user()->permision === 'admin')
             <li class="nav-item" role="presentation">
-              <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">Mis noticias</a>
+                <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">Mis noticias</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a class="nav-link" id="usercontrol-tab" data-toggle="tab" href="#usercontrol" role="tab" aria-controls="usercontrol" aria-selected="false">Gestion de usuarios</a>
+                <a class="nav-link" id="usercontrol-tab" data-toggle="tab" href="#usercontrol" role="tab" aria-controls="usercontrol" aria-selected="false">Gestion de usuarios</a>
             </li>
+        @endif
           </ul>
 
           <div class="tab-content">
