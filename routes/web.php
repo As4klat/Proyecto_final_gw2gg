@@ -31,7 +31,7 @@ Route::get('/noticias/crear', [NewsController::class, 'create'])->middleware('ve
 Route::post('/noticias/crear', [NewsController::class, 'save'])->middleware('verified')->name('news.save');
 Route::get('/noticias/{new}/editar', [NewsController::class, 'edit'])->middleware('verified')->name('news.edit');
 Route::patch('/noticias/{new}', [NewsController::class, 'update'])->middleware('verified')->name('news.update');
-Route::get('/noticias/{new}', [NewsController::class, 'show'])->middleware('verified')->name('news.show');
+Route::get('/noticias/{new}', [NewsController::class, 'show'])->name('news.show');
 Route::delete('/noticias/{new}/delete', [NewsController::class, 'destroy'])->middleware('verified')->name('news.destroy');
 
 Route::get('/actualizaciones', [ActualizacionesController::class, 'index'])->name('actualizaciones.index');

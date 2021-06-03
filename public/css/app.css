@@ -10056,19 +10056,32 @@ h3 {
   height: 100vh;
 }
 
-.img-back {
+.img-back-1 {
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: url(/images/pattern1.jpg?c13ae4620641e5bcc7d0dccf9286bd53);
 }
 
-.no-a {
-  text-decoration: none;
+li {
+  z-index: 1;
+}
+
+.img-back-2 {
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-image: url("/images/Asura Male Guardian.jpg?f0bead24fdda18614a644c6ebd6b7e25");
+}
+
+.new-a {
   color: blue;
 }
 
-.a-new {
+.no-a {
   text-decoration: none;
+  color: black;
+}
+
+.no-a:hover {
   color: black;
 }
 
@@ -10077,6 +10090,8 @@ h3 {
   background-size: 100%;
 }
 
-.opaco {
-  opacity: 0.8;
+hr {
+  border: 0;
+  height: 12px;
+  box-shadow: inset 0 12px 12px -12px orange;
 }

@@ -1,9 +1,9 @@
-<div class="img-back">
+<div class="img-back-1">
     <div class="container py-4">
         <div class="row justify-content-end">
             <div class="col-4 col-sm-3 col-lg-4 ml-auto">
                 @guest
-                <a class="no-a mr-2" href="{{ route('login') }}">Iniciar sesion</a> | <a class="no-a ml-2" href="{{ route('register') }}">Registrarse</a>
+                <a class="new-a mr-2" href="{{ route('login') }}">Iniciar sesion</a> | <a class="new-a ml-2" href="{{ route('register') }}">Registrarse</a>
             @else
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">

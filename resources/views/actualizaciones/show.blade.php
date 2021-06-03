@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('title', $actualizacion->title.' | Actualizacciones')
 @section('content')
-{!! $actualizacion->body !!}
+    <div class="container mt-5">
+        {!! $actualizacion->body !!}
+    </div>
 @endsection
