@@ -46,6 +46,4 @@ Route::get('/perfil/keys', [ApikeyController::class, 'index'])->middleware('veri
 Route::post('/perfil/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');
 Route::delete('/perfil/keys/delete/{key}', [ApikeyController::class, 'destroy'])->middleware('verified')->name('apiform.destroy');
 
-Route::get('/scraping', [ScrapingController::class, 'escraping'])->name('scraping');
-
 Auth::routes(['verify' => true]);
