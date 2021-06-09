@@ -6,7 +6,7 @@
         <div>
             <ul class="list-group">
                 @forelse ($news as $new)
-                <li class="list-group-item mb-3 shadow-sm mx-5 img-back-2">
+                <li class="list-group-item mb-3 shadow-sm mx-5 my-3 img-back-2">
                     <a class="nav-link no-a" href="{{ route('news.show', $new) }}">
                         <div class="row">
                             <div class="col">
@@ -25,7 +25,6 @@
                         </div>
                     </a>
                 </li>
-                <hr>
                 @empty
                 <li class="list-group-item mb-3 shadow-sm">No hay ninguna novedad</li>
                 @endforelse
@@ -33,7 +32,6 @@
                     {{ $news->links() }}
                 </div>
             </ul>
-
         </div>
     </div>
 @endsection

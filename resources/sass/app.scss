@@ -25,6 +25,20 @@ li{
     background-position: 100% 100%;
     background-image: url('../../public/images/concert_art/Asura\ Male\ Guardian.jpg');
 }
+.img-back-about {
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image: url('../../public/images/concert_art/Destinys\ Edge.jpg');
+}
+
+.img-backlogre{
+    background: url('../../public/images/concert_art/Zhaitan.jpg') no-repeat center top;
+    background-size: 100%;
+}
+
+.bg-transparente-about {
+    background-color: rgb(255, 255, 255, 0.6);
+}
 
 .new-a {
     color:blue;
@@ -38,13 +52,18 @@ li{
     color: black;
 }
 
-.img-backlogre{
-    background: url('../../public/images/concert_art/Zhaitan.jpg') no-repeat center top;
-    background-size: 100%;
-}
-
 hr {
+    margin-top: 5%;
+    margin-bottom: 5%;
     border: 0;
     height: 12px;
-    box-shadow: inset 0 12px 12px -12px orange;
+    box-shadow: inset 0 12px 12px -12px red;
+}
+
+p {
+    font-size: 20px;
+}
+
+.card-body {
+    font-size: 18px;
 }

@@ -1,5 +1,5 @@
 <h1>Tus noticias</h1>
-<div class="table-responsive-lg">
+<div class="table-responsive-lg table-striped">
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -10,12 +10,12 @@
         </thead>
         <tbody>
             @forelse ($news as $new)
-                <tr class="table-light">
+                <tr>
                     <th scope="row">{{ $n++ }}</th>
                     <td>{{ $new->title }}</td>
                     <td>{{ $new->created_at->format('d-m-Y  h:m') }}</td>
                     <td>
-                        <div class="row ">
+                        <div class="row">
                             <a href="{{ route('news.edit', $new) }}" class="btn btn-outline-success ml-3">Editar</a>
                             <form action="{{ route('news.destroy', $new) }}" method="post">
                                 @csrf @method('DELETE')

@@ -1,5 +1,5 @@
 <h1>Usuarios</h1>
-<div class="table-responsive-lg">
+<div class="table-responsive-lg table-striped">
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -11,13 +11,13 @@
         </thead>
         <tbody>
             @forelse ($users as $user)
-                <tr class="table-light">
+                <tr>
                     <th scope="row">{{ $n++ }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->permision }}</td>
                     <td>
-                        <div class="row ">
+                        <div class="row">
                             <a href="#" class="btn btn-outline-success col-sm-3 mr-2">Editar</a>
                             <form action="{{ route('perfil.destroy', $user) }}" method="post">
                                 @csrf @method('DELETE')
