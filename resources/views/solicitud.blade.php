@@ -33,7 +33,8 @@
                             name="cuenta"
                             placeholder="Nombre..."
                             id="cuenta"
-                            value="{{ old('cuenta') }}">
+                            value="{{ old('cuenta') }}"
+                            >
                             @error('cuenta')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ViewUserController extends Controller
 {
@@ -33,5 +34,21 @@ class ViewUserController extends Controller
         }
         $user->delete();
         redirect()->back();
+    }
+
+    public function changePassword() {
+        request()->validate([
+            'oldpassword'=> 'required|password',
+            'newpassword'=> 'required|min:6|different:oldpassword',
+            'repeatpassword'=> 'required|min:6|same:newpassword'
+        ]);
+
+        request()->user()->fill([
+            'password' => Hash::make(request()->repeatpassword)
+        ])->update();
+
+        Auth::logout();
+
+        return redirect()->route('login');
     }
 }

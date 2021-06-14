@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'news')
 @section('content')
-    <div class="container mt-5">
+    <div class="container-lg">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true">Tu perfil</a>
@@ -15,9 +15,11 @@
             </li>
         @endif
           </ul>
-
+          
           <div class="tab-content">
-            <div class="tab-pane active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">Lo del usuario</div>
+            <div class="tab-pane active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">
+              @include('perfiles.profile-templates.userProfile')
+            </div>
             <div class="tab-pane" id="news" role="tabpanel" aria-labelledby="news-tab">
                 @include('perfiles.profile-templates.userNew',[
                     'news' => $news,
