@@ -9,9 +9,13 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}" defer></script>
     </head>
-<body class="@if (Request::is('login') || Request::is('register')) img-backlogre @endif">
+<body class="@if (
+                Request::is('login') ||
+                Request::is('register') ||
+                Request::is('password/reset')) img-backlogre @endif">
 
     <div id="app" class="d-flex flex-column h-screen justify-content-between">
+        
         <header>
                 @include('partials.login')
                 @include('partials/nav')

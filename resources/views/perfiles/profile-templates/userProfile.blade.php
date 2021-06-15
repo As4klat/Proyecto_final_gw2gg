@@ -4,18 +4,25 @@
         <div class="row">
             <div class="col border">
                 <div class="m-3">
-                    <form class="py-3 px-4" action="#" method="post">
+                    <form class="py-3 px-4" action="{{route('perfil.changeEmail')}}" method="post">
+                        @csrf @method('PATCH')
                         <legend class="my-2">Cambiar email</legend>
-                        <div class="form-group">
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
                             <input
-                            class="form-control bg-light shadow-sm @error('cuenta') is-invalid @else border-0 @enderror"
                             type="email"
-                            name="emailchange"
-                            placeholder="{{auth()->user()->email}}"
+                            class="input-control bg-light shadow-sm @error('cuenta') is-invalid @else border-0 @enderror"
                             id="emailchange"
+                            name="emailchange"
                             value="{{ old('emailchange') }}"
-                            >
-                        </div>
+                            placeholder="{{auth()->user()->email}}"
+                            aria-describedby="basic-addon1">
+                          </div>
+                        @error('emailchange')
+                            <small style="color: red">* {{ $message }}</small>
+                        @enderror
                         <button class="btn btn-primary bt-md">Actualizar</button>
                     </form>
                     <div class="row">

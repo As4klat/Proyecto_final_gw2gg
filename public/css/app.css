@@ -10052,6 +10052,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+  background-color: white;
+}
+
 .h-screen {
   height: 100vh;
 }

@@ -51,4 +51,20 @@ class ViewUserController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function changeEmail() {
+        request()->validate([
+            'emailchange'=> 'email:rfc,dns|required'
+        ]);
+        
+        request()->user()->fill([
+            'email' => request()->emailchange
+        ])->update();
+        
+        request()->user()->sendEmailVerificationNotification();
+
+        Auth::logout();
+
+        return redirect()->route('login')->with('message', 'Verifique el nuevo email corre! >:D ');
+    }
 }
