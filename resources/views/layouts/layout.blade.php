@@ -35,13 +35,5 @@
             {{ config('app.name') }} | Copyright @ {{ date('Y') }}
         </footer>
     </div>
-
-    <script>
-        window.onload = function(){
-            var load = document.getElementById('load');
-            load.style.visibility = 'hidden';
-            load.style.opacity = '0';
-        }
-    </script>
 </body>
 </html>

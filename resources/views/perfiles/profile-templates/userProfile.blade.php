@@ -84,7 +84,6 @@
             <div class="col border">
                 <div>
                     <div class="m-3">
-
                     </div>
                 </div>
             </div>

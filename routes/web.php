@@ -27,10 +27,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'clan-about')->name('about');
 
 Route::get('/noticias', [NewsController::class, 'index'])->name('news.index');
-Route::get('/noticias/crear', [NewsController::class, 'create'])->middleware('verified')->name('news.create');
-Route::post('/noticias/crear', [NewsController::class, 'save'])->middleware('verified')->name('news.save');
-Route::get('/noticias/{new}/editar', [NewsController::class, 'edit'])->middleware('verified')->name('news.edit');
-Route::patch('/noticias/{new}', [NewsController::class, 'update'])->middleware('verified')->name('news.update');
+Route::get('/noticias/crear', [NewsController::class, 'create'])->middleware('verified', 'puede')->name('news.create');
+Route::post('/noticias/crear', [NewsController::class, 'save'])->middleware('verified', 'puede')->name('news.save');
+Route::get('/noticias/{new}/editar', [NewsController::class, 'edit'])->middleware('verified', 'puede')->name('news.edit');
+Route::patch('/noticias/{new}', [NewsController::class, 'update'])->middleware('verified', 'puede')->name('news.update');
 Route::get('/noticias/{new}', [NewsController::class, 'show'])->name('news.show');
 Route::delete('/noticias/{new}/delete', [NewsController::class, 'destroy'])->middleware('verified')->name('news.destroy');
 
@@ -41,12 +41,12 @@ Route::get('/solicitud', [SolicitudController::class, 'index'])->name('solicitud
 Route::post('/solicitud', [SolicitudController::class, 'save']);
 
 Route::get('/perfil', [ViewUserController::class, 'index'])->middleware('verified')->name('perfil');
-Route::delete('/perfil/admin/{user}/delete', [ViewUserController::class, 'destroyUser'])->middleware('verified')->name('perfil.destroy');
+Route::delete('/perfil/admin/{user}/delete', [ViewUserController::class, 'destroyUser'])->middleware('verified', 'puede')->name('perfil.destroy');
 Route::patch('/perfil/password', [ViewUserController::class, 'changePassword'])->middleware('verified')->name('perfil.changePassword');
 Route::patch('/perfil/email', [ViewUserController::class, 'changeEmail'])->middleware('verified')->name('perfil.changeEmail');
 
-Route::get('/perfil/keys', [ApikeyController::class, 'index'])->middleware('verified')->name('apiform.index');
-Route::post('/perfil/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');
-Route::delete('/perfil/keys/delete/{key}', [ApikeyController::class, 'destroy'])->middleware('verified')->name('apiform.destroy');
+Route::get('/keys', [ApikeyController::class, 'index'])->middleware('verified')->name('apiform.index');
+Route::post('/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');
+Route::delete('/keys/delete/{key}', [ApikeyController::class, 'destroy'])->middleware('verified')->name('apiform.destroy');
 
 Auth::routes(['verify' => true]);

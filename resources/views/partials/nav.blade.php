@@ -19,7 +19,7 @@
         </div>
 
         <a class="navbar-brand" href="{{route('about')}}">
-            <img class="img-fluid" src="./images/logo-clan.jpeg" width="60" height="60" alt="fuerzas_del_alba.jpg">
+            <img class="img-fluid" src="./images/logo-clan.jpeg" width="55" height="55" alt="fuerzas_del_alba.jpg">
         </a>
 
     </div>
