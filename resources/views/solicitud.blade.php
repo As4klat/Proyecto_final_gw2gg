@@ -2,6 +2,7 @@
 @section('title', 'Solicitud')
 @section('content')
     <div class="container">
+        @include('partials.session')
         <div class="row mt-4">
             <div class="col col-sm-10 col-lg-10 mx-auto">
                 <h1 class="display-4">Solicitud</h1>

@@ -65,6 +65,6 @@ class ViewUserController extends Controller
 
         Auth::logout();
 
-        return redirect()->route('login')->with('message', 'Verifique el nuevo email corre! >:D ');
+        return redirect()->route('login')->with('message', 'Verifique el nuevo email corre!');
     }
 }

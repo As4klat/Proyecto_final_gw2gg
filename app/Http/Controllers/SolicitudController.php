@@ -26,6 +26,6 @@ class SolicitudController extends Controller
             'motivo' => request('motivo')
         ]);
 
-        return back();
+        return back()->with('message', 'Solicitud enviada !');
     }
 }
