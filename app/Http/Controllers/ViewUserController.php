@@ -41,7 +41,7 @@ class ViewUserController extends Controller
     }
 
     public function solicitudShow(Solicitudes $solicitud){
-        return view('perfiles.profile-templates.solicitud.solicitudShow', [
+        return view('perfiles.profile-templates.partials.solicitudShow', [
             'solicitud' => $solicitud
         ]);
     }
@@ -59,7 +59,24 @@ class ViewUserController extends Controller
     }
 
     public function editUser(User $user){
+        return view('perfiles.profile-templates.partials.editUser', [
+            'user' => $user
+        ]);
+    }
 
+    public function updateUser(User $user){
+
+        request()->validate([
+            'name'=> 'required',
+            'email'=> 'required',
+        ]);
+
+        $user->update([
+            'name' => request('name'),
+            'email' => request('email'),
+            'permision' => request('permision')
+        ]);
+        return redirect()->route('perfil');
     }
 
     public function destroyUser(User $user){

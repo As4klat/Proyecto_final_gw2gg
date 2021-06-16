@@ -42,6 +42,8 @@ Route::post('/solicitud', [SolicitudController::class, 'save']);
 
 Route::get('/perfil', [ViewUserController::class, 'index'])->middleware('verified')->name('perfil');
 Route::delete('/perfil/admin/{user}/delete', [ViewUserController::class, 'destroyUser'])->middleware('verified', 'puede')->name('perfil.destroy');
+Route::get('/perfil/admin/{user}/editar', [ViewUserController::class, 'editUser'])->middleware('verified', 'puede')->name('perfil.editUser');
+Route::patch('/perfil/admin/{user}', [ViewUserController::class, 'updateUser'])->middleware('verified', 'puede')->name('perfil.updateUser');
 Route::patch('/perfil/password', [ViewUserController::class, 'changePassword'])->middleware('verified')->name('perfil.changePassword');
 Route::patch('/perfil/email', [ViewUserController::class, 'changeEmail'])->middleware('verified')->name('perfil.changeEmail');
 Route::patch('/perfil/solicitud/{solicitud}', [ViewUserController::class, 'solicitudSucces'])->middleware('verified', 'puede')->name('perfil.solicitudSucces');
@@ -51,5 +53,7 @@ Route::get('/perfil/solicitud/{solicitud}', [ViewUserController::class, 'solicit
 Route::get('/keys', [ApikeyController::class, 'index'])->middleware('verified')->name('apiform.index');
 Route::post('/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');
 Route::delete('/keys/delete/{key}', [ApikeyController::class, 'destroy'])->middleware('verified')->name('apiform.destroy');
+
+Route::view('/legal', 'legal')->name('legal');
 
 Auth::routes(['verify' => true]);

@@ -34,7 +34,7 @@
                                         <td>{{ $user->permision }}</td>
                                         <td>
                                             <div class="row">
-                                                <a href="#" class="btn btn-outline-success mx-2">Editar</a>
+                                                <a href="{{ route('perfil.editUser', $user) }}" class="btn btn-outline-success mx-2">Editar</a>
                                                 <form action="{{ route('perfil.destroy', $user) }}" method="post">
                                                     @csrf @method('DELETE')
                                                     <button class="btn btn-danger">Eliminar</button>

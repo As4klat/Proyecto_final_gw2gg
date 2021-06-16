@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col border">
                 <div class="m-3">
-                    <form class="py-3 px-4" action="{{route('perfil.changeEmail')}}" method="post">
+                    <form class="py-3" action="{{route('perfil.changeEmail')}}" method="post">
                         @csrf @method('PATCH')
                         <legend class="my-2">Cambiar email</legend>
                         <div class="input-group my-3">
@@ -84,14 +84,12 @@
             <div class="col border">
                 <div>
                     <div class="m-3">
-                    </div>
-                </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col border">
-                <div>
-                    <div class="m-3">
-
+                        <h2><strong>Aviso legal</strong></h2>
+                        <h3 class="mt-4">Aviso legal y términos de uso</h3> 
+                        
+                        En este espacio, el USUARIO, podrá encontrar toda la información relativa a los términos y condiciones legales que definen las relaciones entre los usuarios y nosotros como responsables de esta web. Como usuario, es importante que conozcas estos términos antes de continuar tu navegación. Gw2gg.Como responsable de esta web, asume el compromiso de procesar la información de nuestros usuarios y clientes con plenas garantías y cumplir con los requisitos nacionales y europeos que regulan la recopilación y uso de los datos personales de nuestros usuarios. Esta web, por tanto, cumple rigurosamente con el RGPD (REGLAMENTO (UE) 2016/679 de protección de datos) y la LSSI-CE la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico.
+                        
+                        <a href="{{ route('legal') }}">Leer...</a>
                     </div>
                 </div>
             </div>

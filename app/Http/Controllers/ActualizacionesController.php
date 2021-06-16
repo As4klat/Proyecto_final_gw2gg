@@ -26,7 +26,7 @@ class ActualizacionesController extends Controller
                     $newclient = new Client;   
                     $newcrawler = $newclient->request('GET', "$newUrl");
                     
-                    $nodo = $newcrawler->filter('[class="blog-post screenshots media-listing"]');
+                    $nodo = $newcrawler->filter('[class="bd post-scl"]');
     
                     $url = strtr($title, " ", "-");
                     $url = strtolower($url);

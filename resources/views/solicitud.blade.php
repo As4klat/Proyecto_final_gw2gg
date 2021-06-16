@@ -25,7 +25,7 @@
             </div>
             <div class="col-12 col-sm-10 col-lg-6 mx-auto">
                 <form class="bg-white shadow rounded py-3 px-4" action="{{ route('solicitud') }}" method="post">
-                @csrf
+                    @csrf
                     <div class="form-group">
                         <label for="cuenta">Nombre de cuenta (nombredecuenta.1234): </label><br>
                         <input

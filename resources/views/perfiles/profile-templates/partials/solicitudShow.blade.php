@@ -6,9 +6,9 @@
             <div class="col">
                 <h2 class="mt-4"><strong>Usuario:</strong> {{$solicitud->nombre_cuenta}}</h2>
                 <h2 class="mt-4">Clases disponibles</h2>
-                <p class="rounded border border-dark">{{$solicitud->clases}}</p>
+                <p class="rounded border border-dark p-3">{{$solicitud->clases}}</p>
                 <h2 class="mt-4">Motivo para entrar</h2>
-                <p class="rounded border border-dark">{{$solicitud->motivo}}</p>
+                <p class="rounded border border-dark p-3">{{$solicitud->motivo}}</p>
             </div>
         </div>
     </div>
