@@ -19,7 +19,7 @@
         </div>
 
         <a class="navbar-brand" href="{{route('about')}}">
-            <img class="img-fluid" src="./images/logo-clan.jpeg" width="55" height="55" alt="fuerzas_del_alba.jpg">
+            <img class="img-fluid" src="https://emblem.werdes.net/emblem/72B76CEF-3A92-E711-80D5-E83935B5B44D" width="80" height="80" alt="fuerzas_del_alba.jpg">
         </a>
 
     </div>

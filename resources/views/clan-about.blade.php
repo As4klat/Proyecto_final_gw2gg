@@ -4,7 +4,7 @@
     <div class="img-back-about py-5">
         <div class="container py-5 bg-transparente-about rounded border border-dark">
             <figure>
-                <img class="img-fluid rounded mx-auto d-block" src="./images/logo-clan.jpeg" width="250" height="250" alt="fuerzas_del_alba.jpg">
+                <img class="img-fluid rounded mx-auto d-block" src="https://emblem.werdes.net/emblem/72B76CEF-3A92-E711-80D5-E83935B5B44D" width="200" height="200" alt="fuerzas_del_alba.jpg">
             </figure>
             <h1 class="display-4 my-5 text-center">Fuerza Del Alba [FDA]</h1>
             <p class="text-justify">

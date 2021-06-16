@@ -1,4 +1,4 @@
-<div class="mt-5">
+<div class="my-4">
     <h4 class="display-4 text-center">Administración de cuenta</h4>
     <div class="container">
         <div class="row">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ApyKey;
 use App\Models\News;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,22 @@ class ViewUserController extends Controller
     {
         $users = User::get();
         $id_user = Auth::id();
+
+        if(!ApyKey::where('id_user', $id_user)->first() === null)
+        {
+            $apiKey = ApyKey::where('id_user', $id_user)
+                            ->select('api_key')
+                            ->first();
+        }
+        else
+        {
+            $apiKey = null;
+        }
+        
+
         $news = News::where('id_editor', $id_user)->latest()->get();
         return view('perfiles.user-view', [
+            'acount' => useApiKey($apiKey),
             'users' => $users,
             'news' => $news
         ]);
@@ -26,14 +41,15 @@ class ViewUserController extends Controller
     }
 
     public function destroyUser(User $user){
+        $admin = User::where('permision', 'admin')->first();
         $news = News::where('id_editor', $user->id)->latest()->get();
         foreach ($news as $new){
             $new->update([
-                'id_editor' => 1
+                'id_editor' => $admin->id
             ]);
         }
         $user->delete();
-        redirect()->back();
+        return redirect()->back();
     }
 
     public function changePassword() {
