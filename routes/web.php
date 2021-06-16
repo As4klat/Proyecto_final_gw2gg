@@ -44,6 +44,9 @@ Route::get('/perfil', [ViewUserController::class, 'index'])->middleware('verifie
 Route::delete('/perfil/admin/{user}/delete', [ViewUserController::class, 'destroyUser'])->middleware('verified', 'puede')->name('perfil.destroy');
 Route::patch('/perfil/password', [ViewUserController::class, 'changePassword'])->middleware('verified')->name('perfil.changePassword');
 Route::patch('/perfil/email', [ViewUserController::class, 'changeEmail'])->middleware('verified')->name('perfil.changeEmail');
+Route::patch('/perfil/solicitud/{solicitud}', [ViewUserController::class, 'solicitudSucces'])->middleware('verified', 'puede')->name('perfil.solicitudSucces');
+Route::delete('/perfil/solicitud/delete/{solicitud}', [ViewUserController::class, 'solicitudDestroy'])->middleware('verified', 'puede')->name('perfil.solicitudDestroy');
+Route::get('/perfil/solicitud/{solicitud}', [ViewUserController::class, 'solicitudShow'])->middleware('verified', 'puede')->name('perfil.solicitudShow');
 
 Route::get('/keys', [ApikeyController::class, 'index'])->middleware('verified')->name('apiform.index');
 Route::post('/keys/crear', [ApikeyController::class, 'save'])->middleware('verified')->name('apiform.save');

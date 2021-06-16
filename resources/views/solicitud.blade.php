@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Solicitud')
 @section('content')
-    <div class="container">
+    <div class="container my-5 bg-white rounded border border-dark">
         @include('partials.session')
         <div class="row mt-4">
             <div class="col col-sm-10 col-lg-10 mx-auto">

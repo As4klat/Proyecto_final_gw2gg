@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Tu perfil | clave api')
 @section('content')
-<div class="container mt-3">
+<div class="container my-5 bg-white rounded border border-dark">
     <div class="row">
         <div col-12>
 

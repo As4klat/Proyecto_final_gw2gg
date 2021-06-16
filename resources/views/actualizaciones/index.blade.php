@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 @section('title', 'Actualizaciones')
 @section('content')
-    <div class="container">
-        <h1 class="display-4">Parches del juego</h1>
+    <div class="container my-5 bg-white rounded border border-dark">
+        <h1 class="display-4 my-5 text-center">Parches del juego</h1>
         <div>
             <ul class="list-group">
                 @forelse ($actualizaciones as $actualizacion)

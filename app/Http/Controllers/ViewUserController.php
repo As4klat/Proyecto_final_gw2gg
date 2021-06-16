@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Solicitudes;
 use App\Models\ApyKey;
 use App\Models\News;
 use App\Models\User;
@@ -9,31 +10,52 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+
+use function PHPSTORM_META\elementType;
+use function PHPUnit\Framework\isEmpty;
+
 class ViewUserController extends Controller
 {
     public function index()
     {
+        $solicitudes = Solicitudes::get();
         $users = User::get();
         $id_user = Auth::id();
+        $apiKeyObj = ApyKey::where('id_user', $id_user)->first();
 
-        if(!ApyKey::where('id_user', $id_user)->first() === null)
+        if(empty($apiKeyObj))
         {
-            $apiKey = ApyKey::where('id_user', $id_user)
-                            ->select('api_key')
-                            ->first();
+            $apiKey = null;  
         }
         else
         {
-            $apiKey = null;
+            $apiKey = $apiKeyObj->api_key;
         }
-        
-
         $news = News::where('id_editor', $id_user)->latest()->get();
         return view('perfiles.user-view', [
-            'acount' => useApiKey($apiKey),
+            'solicitudes' => $solicitudes,
             'users' => $users,
+            'acount' => useApiKey($apiKey),
             'news' => $news
         ]);
+    }
+
+    public function solicitudShow(Solicitudes $solicitud){
+        return view('perfiles.profile-templates.solicitud.solicitudShow', [
+            'solicitud' => $solicitud
+        ]);
+    }
+
+    public function solicitudSucces(Solicitudes $solicitud){
+        $solicitud->update([
+            'aceptado' => 1
+        ]);
+        return redirect()->back();
+    }
+
+    public function solicitudDestroy(Solicitudes $solicitud){
+        $solicitud->delete();
+        return redirect()->back();
     }
 
     public function editUser(User $user){

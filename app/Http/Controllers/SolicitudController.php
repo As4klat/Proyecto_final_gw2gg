@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\solicitudes;
+use App\Models\Solicitudes;
 use Illuminate\Http\Request;
 
 class SolicitudController extends Controller
@@ -20,10 +20,11 @@ class SolicitudController extends Controller
             'motivo' => 'required|max:254'
         ]);
 
-        solicitudes::create([
+        Solicitudes::create([
             'nombre_cuenta' => request('cuenta'),
             'clases' => request('clases'),
-            'motivo' => request('motivo')
+            'motivo' => request('motivo'),
+            'aceptado' => 0
         ]);
 
         return back()->with('message', 'Solicitud enviada !');

@@ -1,5 +1,8 @@
-<div class="my-4">
+<div class="my-4 mx-5">
     <h1>Tus noticias</h1>
+    @if ($news->isEmpty())
+       <p>No hay noticias aún, empecemos a crear!</p>
+    @else
     <div class="table-responsive-lg table-striped">
         <table class="table">
             <thead class="thead-dark">
@@ -26,10 +29,11 @@
                         </td>
                     </tr>
                 @empty
-                    <tr>Empecemos a crear noticias :D</tr>
+                    <tr></tr>
                 @endforelse
             </tbody>
         </table>
     </div>
+    @endif
     <a href="{{ route('news.create') }}" class="btn btn-primary ml-3">Crear</a>
 </div>

@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 @section('title', 'Noticias')
 @section('content')
-    <div class="container">
-        <h1 class="display-4 text-center my-5">¡Eventos!</h1>
+    <div class="container my-5 bg-white rounded border border-dark">
+        <h1 class="display-4 text-center">¡Eventos!</h1>
         <div>
             <ul class="list-group">
                 @forelse ($news as $new)

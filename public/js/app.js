@@ -1903,13 +1903,6 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-
-window.onload = function () {
-  var load = document.getElementById('load');
-  load.style.visibility = 'hidden';
-  load.style.opacity = '0';
-};
-
 $('#exampleModal').modal({
   backdrop: true,
   keyboard: true,

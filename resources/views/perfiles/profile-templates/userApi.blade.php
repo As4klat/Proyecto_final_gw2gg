@@ -1,19 +1,16 @@
-<div class="my-4">
-    @if (@empty($acount))
+<div class="my-4 mx-5">
+    @if ($acount === null)
         <p>Por favor compruebe su clave Api que tenga los permisos necesarios</p>
     @else
         <div class="row">
+            <h1 class="display-3">{{$acount->name}}</h1>
+        </div>
+        <div class="row">
             <div class="col">
-                <h1 class="display-3">{{$acount->name}}</h1>
-                <small>{{$acount->age}}</small>
-                <p>{{$acount->world}}</p>
+                <p>Tiempo de juego: <small>{{$acount->age}}</small></p>
+                <p>Servidor de origen: {{$acount->world}}</p>
             </div>
-            <div class="col mt-3">
-                @if (@empty($acount->guild_leader))
-                <p>No eres lider de ningun clan.</p>
-                @else
-                <p>{{$acount->guild_leader}}</p>
-                @endif
+            <div class="col">
                 <p>Nivel de fractales: {{$acount->fractal_level}}</p>
                 <p>Nivel de McM: {{$acount->wvw_rank}}</p>
             </div> 

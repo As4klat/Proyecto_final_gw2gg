@@ -12,10 +12,9 @@
 <body class="@if (
                 Request::is('login') ||
                 Request::is('register') ||
-                Request::is('password/reset')) img-backlogre @endif">
+                Request::is('password/reset')) img-backlogre @else img-back-3 @endif">
 
-    <div id="app" class="d-flex flex-column h-screen justify-content-between">
-        
+    <div id="app" class="d-flex flex-column justify-content-between">
         <header>
                 @include('partials.login')
                 @include('partials/nav')
@@ -23,15 +22,9 @@
 
         <main>
             @yield('content')
-
-            <div id="load" class="d-flex justify-content-center aling-items-center" style="width: 3rem; height: 3rem;" >
-                <div class="spinner-border" role="status">
-                  <span class="visually-hidden"></span>
-                </div>
-            </div>
         </main>
 
-        <footer class="bg-white text-center text-black-50 py-3 shadow">
+        <footer class="bg-white text-center text-black-50 py-3 shadow ">
             {{ config('app.name') }} | Copyright @ {{ date('Y') }}
         </footer>
     </div>

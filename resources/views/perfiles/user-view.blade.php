@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 @section('title', 'news')
 @section('content')
-    <div class="container-lg my-4">
+    <div class="container my-5 bg-white rounded border border-dark">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#perfil" role="tab" aria-controls="perfil" aria-selected="true">Tu perfil</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a class="nav-link" id="perfil-tab" data-toggle="tab" href="#apiAcount" role="tab" aria-controls="apiAcount" aria-selected="false">Cuenta Api</a>
+              <a class="nav-link" id="perfil-tab" data-toggle="tab" href="#userApi" role="tab" aria-controls="userApi" aria-selected="false">Cuenta Api</a>
             </li>
           @if (auth()->user()->permision === 'editor' || auth()->user()->permision === 'admin')
             <li class="nav-item" role="presentation">
@@ -25,8 +25,8 @@
             <div class="tab-pane active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">
               @include('perfiles.profile-templates.userProfile')
             </div>
-            <div class="tab-pane" id="apiAcount" role="tabpanel" aria-labelledby="news-tab">
-              @include('perfiles.profile-templates.apiAcount',[
+            <div class="tab-pane" id="userApi" role="tabpanel" aria-labelledby="news-tab">
+              @include('perfiles.profile-templates.userApi',[
                 'acount' => $acount,
               ])
           </div>
@@ -38,8 +38,10 @@
             </div>
             <div class="tab-pane" id="usercontrol" role="tabpanel" aria-labelledby="usercontrol-tab">
                 @include('perfiles.profile-templates.userAdmin',[
+                'solicitudes' => $solicitudes,
                 'users' => $users,
-                'n' => 1
+                'n' => 1,
+                'n1' => 1
             ])</div>
           </div>
 

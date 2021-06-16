@@ -1,13 +1,16 @@
 <?php
 use Carbon\CarbonInterval;
 
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
+
 function setActive($routeName)
 {
     return request()->routeIs($routeName) ? 'active' : '';
 }
 
 function useApiKey($apiKey){
-    if (!$apiKey === null)
+    if ($apiKey !== null)
     {
         $url_acount = 'https://api.guildwars2.com/v2/account?access_token='.$apiKey;
         $acount = file_get_contents($url_acount);
@@ -16,6 +19,7 @@ function useApiKey($apiKey){
         $acount->world = world($acount->world);
         $acount->guilds = guilds($acount->guilds);
     }
+    else
     {
         $acount = null;
     }
