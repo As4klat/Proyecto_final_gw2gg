@@ -14,7 +14,7 @@
                         name="name"
                         placeholder="{{$user->name}}"
                         id="name"
-                        value="{{ old('name') }}"
+                        value="{{ $user->name }}"
                         >
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                         name="email"
                         placeholder="{{$user->email}}"
                         id="email"
-                        value="{{ old('email') }}"
+                        value="{{ $user->email }}"
                         >
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -43,19 +43,19 @@
                       <legend class="col-form-label col-sm-2 pt-0">Permiso:</legend>
                       <div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="permision" id="permision" value="admin" @if ($user->permision === 'admin') checked @endif>
+                          <input class="form-check-input" type="radio" name="permision" id="admin" value="admin" @if ($user->permision === 'admin') checked @endif>
                           <label class="form-check-label" for="admin">
                             Admin
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="permision" id="permision" value="editor" @if ($user->permision === 'editor') checked @endif>
+                          <input class="form-check-input" type="radio" name="permision" id="editor" value="editor" @if ($user->permision === 'editor') checked @endif>
                           <label class="form-check-label" for="editor">
                             Editor
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="permision" id="permision" value="user" @if ($user->permision === 'user') checked @endif>
+                          <input class="form-check-input" type="radio" name="permision" id="user" value="user" @if ($user->permision === 'user') checked @endif>
                           <label class="form-check-label" for="user">
                             Usuario
                           </label>

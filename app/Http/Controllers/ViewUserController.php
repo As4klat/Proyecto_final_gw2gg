@@ -67,8 +67,8 @@ class ViewUserController extends Controller
     public function updateUser(User $user){
 
         request()->validate([
-            'name'=> 'required',
-            'email'=> 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
         ]);
 
         $user->update([
