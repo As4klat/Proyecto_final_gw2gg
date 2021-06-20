@@ -1,7 +1,7 @@
 <div class="img-back-1">
     <div class="container py-4">
         <div class="row justify-content-end">
-            <div class="col-4 col-sm-3 col-lg-4 ml-auto">
+            <div class="col-6 col-sm-2 col-md-3 col-lg-4 ml-auto">
                 @guest
                 <a class="new-a mr-2" href="{{ route('login') }}">Iniciar sesion</a> | <a class="new-a ml-2" href="{{ route('register') }}">Registrarse</a>
             @else
